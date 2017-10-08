@@ -1,2 +1,5 @@
 Repositorio:
 	https://github.com/sgastia/pct.web.git
+	
+Para construir el backend:
+	https://spring.io/guides/gs/handling-form-submission/
