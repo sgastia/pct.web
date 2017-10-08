@@ -1,0 +1,22 @@
+<!DOCTYPE hibernate-mapping
+	PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="pct.model">
+	<class name="Concierto" table="CONCIERTOS">
+		<id name="id" type="long" column="IDCONCIERTO">
+			<generator class="identity" />
+		</id>
+		<property name="nombre" type="string">
+			<column name="NOMBRE" length="100" not-null="true" />
+		</property>
+		<property name="fecha" type="date">
+		    <column name="FECHA"/>
+		</property>
+		<property name="lugar" type="string">
+			<column name="LUGAR" length="100" />
+		</property>
+		<property name="posterHtml" type="string">
+			<column name="POSTERHTML" length="2000" />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,104 @@
+<project 
+	xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.pct</groupId>
+  <artifactId>pctweb</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>pctweb Maven Webapp</name>
+  <!-- <url>http://maven.apache.org</url>  -->
+  <parent>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-parent</artifactId>
+       <version>1.5.7.RELEASE</version>
+   </parent>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <!--<version>3.8.1</version>-->
+      <scope>test</scope>
+    </dependency>
+    <!-- Spring framework -->
+  	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-devtools</artifactId>
+		<optional>true</optional>
+	</dependency>
+	<!-- Spring AOP dependency -->
+    <dependency>
+    	<groupId>cglib</groupId>
+		<artifactId>cglib</artifactId>
+		<version>2.2</version>
+	</dependency>
+    <!-- BEGIN Hibernate dependencies -->
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-orm</artifactId>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-core</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.hibernate</groupId>
+    	<artifactId>hibernate</artifactId>
+    	<!--<version>3.2.3.GA</version>-->
+    	<version>3.5.4-Final</version>
+    	<type>pom</type>
+	</dependency>
+	<dependency>
+	    <groupId>javax.transaction</groupId>
+	    <artifactId>jta</artifactId>
+	    <version>1.1</version>
+	</dependency>
+	<dependency>
+		<groupId>dom4j</groupId>
+		<artifactId>dom4j</artifactId>
+		<!--<version>1.6.1</version>-->
+	</dependency>
+	
+	<dependency>
+		<groupId>commons-logging</groupId>
+		<artifactId>commons-logging</artifactId>
+		<version>1.1.1</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>commons-collections</groupId>
+		<artifactId>commons-collections</artifactId>
+		<!--<version>3.2.1</version>-->
+	</dependency>
+	
+	<dependency>
+		<groupId>antlr</groupId>
+		<artifactId>antlr</artifactId>
+		<!--<version>2.7.7</version>-->
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/sqljdbc4 -->
+	<!--
+	<dependency>
+	    <groupId>com.microsoft.sqlserver</groupId>
+	    <artifactId>sqljdbc4</artifactId>
+	    <version>4.0</version>
+	    <scope>test</scope>
+	</dependency>
+	-->
+	<!-- END Hibernate dependencies -->	
+  </dependencies>
+  <build>
+    <finalName>pctweb</finalName>
+  </build>
+</project>

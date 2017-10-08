@@ -1,0 +1,32 @@
+<!DOCTYPE hibernate-mapping
+	PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="pct.model">
+	<class name="Integrante" table="INTEGRANTES">
+		<id name="id" type="long" column="IDINTEGRANTE">
+			<generator class="identity" />
+		</id>
+		<property name="nombre" type="string">
+			<column name="NOMBRE" length="50" not-null="true" />
+		</property>
+		<property name="apellido" type="string">
+			<column name="APELLIDO" length="50" />
+		</property>
+		<property name="instrumento" column="idinstrumento">
+		    <!-- 
+		    	Nota aclaratoria:
+		    	En realidad, no mapea por ID sino por indice.
+		    	Hibernate, al tratar de obtener el enum hace algo asi como:
+		    		...
+		    		Instrumento i = Instrumento.values()[valor_de_la_bd];
+		    		integrante.setInstrumento(i)
+		    		...
+		    	Entonces, valor_de_la_bd termina siendo el index del enum, no el id
+		     -->
+		    <type name="org.hibernate.type.EnumType">
+		        <param name="enumClass">pct.model.Instrumento</param>
+		        <param name="useNamed">false</param>
+	        </type>
+		</property>
+	</class>
+</hibernate-mapping>

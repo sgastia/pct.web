@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html ng-app="pctApp">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Posaunenchor Temperley</title>
+	<script src="scripts/angular/angular.js"></script>
+    <script src="scripts/app/service.js"></script>
+    <script src="scripts/app/indexCtrl.js"></script>
+    <script src="scripts/app/angular-simple-pagination.js"></script>
+</head>
+<body>
+	<script src="scripts/app/app.js"></script>
+	<form name="myForm" ng-controller="indexCtrl">
+		
+		<div>Mensaje: {{ message }}</div>
+		<a ng-click="showIntegrantes();">ver integrantes</a>
+		<br>
+		<a ng-click="showConciertos();">ver conciertos</a>
+		<br>
+		<a ng-click="showVideos();">ver videos</a>
+		<br/>
+		
+		<hr>
+		<section ng-model="conciertos" ng-show="showSeccionConciertos">
+			Seccion Conciertos
+			<br/>
+			<a href="/conciertos">Get conciertos</a>
+			<br>
+			<table class="table table-hover">
+                    <tr>
+                    	<td><strong>Id</strong>
+                        <td><strong>Fecha</strong></td>
+                        <td><strong>Lugar</strong></td>
+                        <td><strong>Html</strong></td>
+                    </tr>
+
+                    <tr ng-repeat="concierto in conciertos | limitTo:pagingSettings.pageLimit:pagingSettings.offset" ng-click="selectConcierto(concierto.id);">
+                    	<td>{{concierto.id}}</td>
+                        <td>{{concierto.fecha }}</td>
+                        <td>{{concierto.lugar}}</td>
+                        <td>{{concierto.html}}</td>
+                    </tr>
+                </table>
+                <div class="d-flex justify-content-center">
+                    <simple-pagination current-page="pagingSettings.currentPage"
+                                       page-limit="pagingSettings.pageLimit"
+                                       offset="pagingSettings.offset"
+                                       page-limits="pagingSettings.pageLimits"
+                                       total="conciertos.length">
+                    </simple-pagination>
+                </div>
+		</section>
+		<section ng-model="integrantes" ng-show="showSeccionIntegrantes">
+			Seccion Integrantes
+			<br/>
+			<a href="/integrantes?idConcierto=0">Get integrantes</a>
+			<br>
+			<br>
+			<table class="table table-hover">
+			    <tr>
+			        <td><strong>Nombre</strong></td>
+			        <td><strong>Apellido</strong></td>
+			        <td><strong>Instrumento</strong></td>
+			    </tr>
+			
+			    <tr ng-repeat="integrante in integrantes | limitTo:pagingSettings.pageLimit:pagingSettings.offset" ng-click="selectIntegrante(integrante.id);">
+			        <td>{{integrante.nombre }}</td>
+			        <td>{{integrante.apellido}}</td>
+			        <td>{{integrante.instrumento}}</td>
+			    </tr>
+			</table>
+			<!-- 
+			<div class="d-flex justify-content-center">
+			    <simple-pagination current-page="pagingSettings.currentPage"
+			                       page-limit="pagingSettings.pageLimit"
+			                       offset="pagingSettings.offset"
+			                       page-limits="pagingSettings.pageLimits"
+			                       total="integrantes.length">
+			    </simple-pagination>
+			</div>
+			 -->
+		</section>
+		<section ng-model="videos" ng-show="showSeccionVideos">
+			Seccion Videos
+			<br>
+			<a href="/videos">Get videos</a>
+			<br>
+			<a href="https://www.youtube.com/user/corodebronces" target="_blank">Canal en youtube</a>
+			<br>
+			<table class="table table-hover">
+			    <tr>
+			        <td><strong>Link</strong></td>
+			        <td><strong>Comentarios</strong></td>
+			    </tr>
+			
+			    <tr ng-repeat="video in videos | limitTo:pagingSettings.pageLimit:pagingSettings.offset" ng-click="selectVideo(video.id);">
+			        <td><a href="{{video.link }}">{{video.nombre}}</a></td>
+			        <td>{{video.comentarios}}</td>
+			    </tr>
+			</table>
+			<!-- 
+			<div class="d-flex justify-content-center">
+			    <simple-pagination current-page="pagingSettings.currentPage"
+			                       page-limit="pagingSettings.pageLimit"
+			                       offset="pagingSettings.offset"
+			                       page-limits="pagingSettings.pageLimits"
+			                       total="integrantes.length">
+			    </simple-pagination>
+			</div>
+			 -->
+		</section>
+	</form>
+</body>
+</html>

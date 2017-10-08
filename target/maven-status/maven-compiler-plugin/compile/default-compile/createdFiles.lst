@@ -1,0 +1,11 @@
+pct\model\Integrante.class
+pct\model\Coleccion.class
+pct\model\Instrumento.class
+pct\model\Concierto.class
+pct\services\IPCTService.class
+pct\services\PCTDao.class
+pct\model\Video.class
+pct\web\Application.class
+pct\services\IPCTDao.class
+pct\services\PCTService.class
+pct\web\controllers\FrontEndController.class
